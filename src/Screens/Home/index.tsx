@@ -20,8 +20,9 @@ const Home: React.FC = () => {
     <Container>
       <BgPoke source={{ uri: 'null' }} resizeMode="contain" color={colors.pokename}>
         <Pokemon
+         resizeMode="contain" 
           source={{
-            uri: "https://projectpokemon.org/images/normal-sprite/magikarp.gif",
+            uri: "https://projectpokemon.org/images/normal-sprite/arbok.gif",
           }}
         />
       </BgPoke>

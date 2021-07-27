@@ -1,5 +1,8 @@
 import styled from "styled-components/native";
 import { colors } from "../../Themes/colors";
+type Colors = {
+  color: string;
+};
 export const Container = styled.View`
   width: 100vw;
   background: ${colors.backgroud};
@@ -7,19 +10,16 @@ export const Container = styled.View`
   align-items: center;
 `;
 
-type Colors = {
-  color: string;
-};
-
 export const BgPoke = styled.ImageBackground<Colors>`
   width: 300px;
   height: 300px;
   justify-content: center;
   align-items: center;
-  background-color: ${props => props.color};
+  background-color: ${(props) => props.color || "#FFF"};
   border-radius: 50%;
   margin: 0px;
   margin-top: 20px;
+  background-size: contain;
 `;
 export const WrapperButtons = styled.View`
   width: 90%;
@@ -30,10 +30,8 @@ export const WrapperButtons = styled.View`
 `;
 
 export const Pokemon = styled.Image`
-  max-width: 300px;
-  max-height: 320px;
   width: 100%;
-  height: 90%;
+  height: 100%;
   margin: 0px;
 `;
 
