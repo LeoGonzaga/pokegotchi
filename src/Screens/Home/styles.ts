@@ -7,12 +7,19 @@ export const Container = styled.View`
   align-items: center;
 `;
 
-export const BgPoke = styled.ImageBackground`
+type Colors = {
+  color: string;
+};
+
+export const BgPoke = styled.ImageBackground<Colors>`
   width: 300px;
-  height: 320px;
+  height: 300px;
   justify-content: center;
   align-items: center;
+  background-color: ${props => props.color};
+  border-radius: 50%;
   margin: 0px;
+  margin-top: 20px;
 `;
 export const WrapperButtons = styled.View`
   width: 90%;
@@ -23,8 +30,10 @@ export const WrapperButtons = styled.View`
 `;
 
 export const Pokemon = styled.Image`
+  max-width: 300px;
+  max-height: 320px;
   width: 100%;
-  height: 100%;
+  height: 90%;
   margin: 0px;
 `;
 

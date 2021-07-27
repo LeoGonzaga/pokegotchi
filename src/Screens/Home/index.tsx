@@ -13,17 +13,15 @@ import {
   ButtonName,
 } from "./styles";
 import Status from "../../Components/Status/Status";
-import image from "../../../assets/Blob.svg";
-
-
+import { colors } from "../../Themes/colors";
 
 const Home: React.FC = () => {
   return (
     <Container>
-      <BgPoke source={image} resizeMode="contain">
+      <BgPoke source={{ uri: 'null' }} resizeMode="contain" color={colors.pokename}>
         <Pokemon
           source={{
-            uri: "https://projectpokemon.org/images/normal-sprite/charizard.gif",
+            uri: "https://projectpokemon.org/images/normal-sprite/magikarp.gif",
           }}
         />
       </BgPoke>
