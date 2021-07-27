@@ -11,8 +11,8 @@ export const Container = styled.View`
 `;
 
 export const BgPoke = styled.ImageBackground<Colors>`
-  width: 300px;
-  height: 300px;
+  width: 280px;
+  height: 280px;
   justify-content: center;
   align-items: center;
   background-color: ${(props) => props.color || "#FFF"};
@@ -31,16 +31,17 @@ export const WrapperButtons = styled.View`
 
 export const Pokemon = styled.Image`
   width: 100%;
-  height: 100%;
+  height: 60%;
   margin: 0px;
 `;
 
-export const PokeName = styled.Text`
-  color: ${colors.pokename};
+export const PokeName = styled.Text<Colors>`
+  color: ${(props) => props.color};
   font-size: 36px;
   margin: 0px;
   font-weight: bold;
   margin-bottom: 5px;
+  text-transform: uppercase;
 `;
 
 export const ButtonName = styled.Text`

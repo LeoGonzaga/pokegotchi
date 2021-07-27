@@ -15,3 +15,9 @@ export const Poke = styled.TouchableOpacity<Colors>`
   padding: 10px;
   border:none;
 `;
+
+export const Pokemon = styled.Image`
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+`;

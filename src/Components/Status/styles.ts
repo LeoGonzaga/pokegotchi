@@ -1,8 +1,11 @@
 import styled from "styled-components/native";
 import { colors } from "../../Themes/colors";
 
-export const Container = styled.View`
-  background: ${colors.pokename};
+type Props = {
+  color: string;
+};
+export const Container = styled.View<Props>`
+  background: ${(props) => props.color};
   max-width: 50%;
   width: 50%;
   height: 46px;
@@ -10,7 +13,8 @@ export const Container = styled.View`
 
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 10px;
+  margin-bottom: 30px;
 `;
 
 export const StatusName = styled.Text`
