@@ -2,7 +2,6 @@ import styled from "styled-components/native";
 import { colors } from "../../Themes/colors";
 export const Container = styled.View`
   width: 100vw;
-  height: 100vh;
   background: ${colors.backgroud};
   justify-content: center;
   align-items: center;
