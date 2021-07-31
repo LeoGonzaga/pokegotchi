@@ -39,7 +39,7 @@ export const SelectPokes = styled.View`
   justify-content: space-around;
 `;
 
-export const Row = styled.View`
+export const Row = styled.TouchableOpacity`
   flex: 1;
   justify-content: center;
   align-items: center;

@@ -15,7 +15,7 @@ import {
   SelectText,
 } from "./styles";
 
-const SelectPokemon: React.FC<any> = () => {
+const SelectPokemon: React.FC<any> = ({ navigation }) => {
   const { handleSelectInitialPokemon, handleSelectTheme } =
     useContext(PokeContext);
 
@@ -31,8 +31,6 @@ const SelectPokemon: React.FC<any> = () => {
     },
     [initialPoke, color]
   );
-
-  console.log(color);
 
   const handleChangeColor = useCallback(
     (poke: string) => {
@@ -54,6 +52,10 @@ const SelectPokemon: React.FC<any> = () => {
     },
     [initialPoke, color]
   );
+
+  const handleConfirm = useCallback(() => {
+    navigation.navigate("Pokegotchi");
+  }, []);
 
   return (
     <Container>
@@ -97,9 +99,9 @@ const SelectPokemon: React.FC<any> = () => {
         </Poke>
       </SelectPokes>
 
-      <Row>
-        <SelectText>I choose you</SelectText>
+      <Row onPress={handleConfirm}>
         <Pokeball source={PokeballImage} resizeMode="contain" />
+        <SelectText>I choose you</SelectText>
       </Row>
     </Container>
   );
