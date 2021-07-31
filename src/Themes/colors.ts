@@ -11,7 +11,7 @@ export const colors = {
   bug: "#A8B820",
   ghost: "#705898",
   steel: "#B8B8D0",
-  fire: "#F08030",
+  fire: "#CE2121",
   water: "#6890F0",
   grass: "#78C850",
   eletric: "#F8D030",

@@ -3,51 +3,71 @@ import { useCallback } from "react";
 import { PokeContext } from "../../context/usePoke";
 import { colors } from "../../Themes/colors";
 
-import { Container, Poke, Pokemon, SelectPokes } from "./styles";
+import PokeballImage from "../../../assets/pokeball.png";
+import {
+  Container,
+  Poke,
+  Pokemon,
+  Row,
+  SelectPokes,
+  Pokeball,
+  Background,
+} from "./styles";
 
-const SelectPokemon: React.FC<any> = ({ navigation }) => {
-  const { handleSelectInitialPokemon, handleSelectTheme } =
+const SelectPokemon: React.FC<any> = () => {
+  const { handleSelectInitialPokemon, handleSelectTheme, pokemon } =
     useContext(PokeContext);
 
   const handleSelected = useCallback((poke: string) => {
     handleSelectInitialPokemon(poke);
     handleSelectTheme(poke);
-    navigation.navigate("Pokegotchi");
   }, []);
 
   return (
     <Container>
-      <Poke color={colors.grass} onPress={() => handleSelected("bulbasaur")}>
+      <Background color={colors.fire}>
         <Pokemon
           resizeMode="contain"
           source={{
-            uri: "https://projectpokemon.org/images/normal-sprite/charmander.gif",
+            uri: `https://projectpokemon.org/images/normal-sprite/${pokemon}.gif`,
           }}
         />
-      </Poke>
+      </Background>
       <SelectPokes>
-        <Pokemon
-          size={20}
-          resizeMode="contain"
-          source={{
-            uri: "https://projectpokemon.org/images/normal-sprite/charmander.gif",
-          }}
-        />
-             <Pokemon
-          size={20}
-          resizeMode="contain"
-          source={{
-            uri: "https://projectpokemon.org/images/normal-sprite/squirtle.gif",
-          }}
-        />
+        <Poke onPress={() => handleSelected("charmander")}>
           <Pokemon
-          size={20}
-          resizeMode="contain"
-          source={{
-            uri: "https://projectpokemon.org/images/normal-sprite/bulbasaur.gif",
-          }}
-        />
+            size={90}
+            resizeMode="contain"
+            source={{
+              uri: "https://projectpokemon.org/images/normal-sprite/charmander.gif",
+            }}
+          />
+        </Poke>
+
+        <Poke onPress={() => handleSelected("squirtle")}>
+          <Pokemon
+            size={90}
+            resizeMode="contain"
+            source={{
+              uri: "https://projectpokemon.org/images/normal-sprite/squirtle.gif",
+            }}
+          />
+        </Poke>
+
+        <Poke onPress={() => handleSelected("bulbasaur")}>
+          <Pokemon
+            size={90}
+            resizeMode="contain"
+            source={{
+              uri: "https://projectpokemon.org/images/normal-sprite/bulbasaur.gif",
+            }}
+          />
+        </Poke>
       </SelectPokes>
+
+      <Row>
+        <Pokeball source={PokeballImage} resizeMode="contain" />
+      </Row>
     </Container>
   );
 };

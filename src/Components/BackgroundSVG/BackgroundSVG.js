@@ -1,6 +1,6 @@
 import * as React from "react";
 
-export default function TestSvg({ color }) {
+export default function BackgroundSVG({ color }) {
   return (
     <svg
       width="306"
