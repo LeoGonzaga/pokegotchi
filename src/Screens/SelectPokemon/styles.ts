@@ -49,3 +49,6 @@ export const Pokeball = styled.Image`
   width: 90px;
   height: 90px;
 `;
+
+
+export const SelectText = styled.Text``;

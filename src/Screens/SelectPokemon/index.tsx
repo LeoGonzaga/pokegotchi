@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useCallback } from "react";
 import { PokeContext } from "../../context/usePoke";
 import { colors } from "../../Themes/colors";
@@ -12,24 +12,56 @@ import {
   SelectPokes,
   Pokeball,
   Background,
+  SelectText,
 } from "./styles";
 
 const SelectPokemon: React.FC<any> = () => {
-  const { handleSelectInitialPokemon, handleSelectTheme, pokemon } =
+  const { handleSelectInitialPokemon, handleSelectTheme } =
     useContext(PokeContext);
 
-  const handleSelected = useCallback((poke: string) => {
-    handleSelectInitialPokemon(poke);
-    handleSelectTheme(poke);
-  }, []);
+  const [initialPoke, setInitialPoke] = useState<string>("charmander");
+  const [color, setColor] = useState<string>(colors.fire);
+
+  const handleSelected = useCallback(
+    (poke: string) => {
+      handleSelectInitialPokemon(poke);
+      handleSelectTheme(poke);
+      setInitialPoke(poke);
+      handleChangeColor(poke);
+    },
+    [initialPoke, color]
+  );
+
+  console.log(color);
+
+  const handleChangeColor = useCallback(
+    (poke: string) => {
+      switch (poke) {
+        case "charmander":
+          setColor(colors.fire);
+          break;
+        case "squirtle":
+          setColor(colors.water);
+          break;
+        case "bulbasaur":
+          setColor(colors.grass);
+          break;
+
+        default:
+          setColor(colors.fire);
+          break;
+      }
+    },
+    [initialPoke, color]
+  );
 
   return (
     <Container>
-      <Background color={colors.fire}>
+      <Background color={color}>
         <Pokemon
           resizeMode="contain"
           source={{
-            uri: `https://projectpokemon.org/images/normal-sprite/${pokemon}.gif`,
+            uri: `https://projectpokemon.org/images/normal-sprite/${initialPoke}.gif`,
           }}
         />
       </Background>
@@ -66,6 +98,7 @@ const SelectPokemon: React.FC<any> = () => {
       </SelectPokes>
 
       <Row>
+        <SelectText>I choose you</SelectText>
         <Pokeball source={PokeballImage} resizeMode="contain" />
       </Row>
     </Container>
