@@ -3,9 +3,12 @@ import styled from "styled-components/native";
 type Colors = {
   color: string;
 };
+
+type Pokemon = {
+  size?: Number;
+};
 export const Container = styled.View`
   flex: 1;
-  justify-content: space-between;
 `;
 
 export const Poke = styled.TouchableOpacity<Colors>`
@@ -13,11 +16,17 @@ export const Poke = styled.TouchableOpacity<Colors>`
   height: 33%;
   width: 100%;
   padding: 10px;
-  border:none;
+  border: none;
 `;
 
-export const Pokemon = styled.Image`
-  width: 100%;
-  height: 100%;
+export const Pokemon = styled.Image<Pokemon>`
+  width: ${(props) => (props.size ? props.size + "%" : "100%")};
+  height: ${(props) => (props.size ? props.size + "%" : "100%")};
   margin: 0px;
+`;
+
+export const SelectPokes = styled.View`
+  background-color: red;
+  flex:1;
+  flex-direction: row;
 `;

@@ -3,7 +3,7 @@ import { useCallback } from "react";
 import { PokeContext } from "../../context/usePoke";
 import { colors } from "../../Themes/colors";
 
-import { Container, Poke, Pokemon } from "./styles";
+import { Container, Poke, Pokemon, SelectPokes } from "./styles";
 
 const SelectPokemon: React.FC<any> = ({ navigation }) => {
   const { handleSelectInitialPokemon, handleSelectTheme } =
@@ -21,26 +21,33 @@ const SelectPokemon: React.FC<any> = ({ navigation }) => {
         <Pokemon
           resizeMode="contain"
           source={{
-            uri: "https://projectpokemon.org/images/normal-sprite/bulbasaur.gif",
+            uri: "https://projectpokemon.org/images/normal-sprite/charmander.gif",
           }}
         />
       </Poke>
-      <Poke color={colors.fire} onPress={() => handleSelected("charmander")}>
+      <SelectPokes>
         <Pokemon
+          size={20}
           resizeMode="contain"
           source={{
             uri: "https://projectpokemon.org/images/normal-sprite/charmander.gif",
           }}
         />
-      </Poke>
-      <Poke color={colors.water} onPress={() => handleSelected("squirtle")}>
-        <Pokemon
+             <Pokemon
+          size={20}
           resizeMode="contain"
           source={{
             uri: "https://projectpokemon.org/images/normal-sprite/squirtle.gif",
           }}
         />
-      </Poke>
+          <Pokemon
+          size={20}
+          resizeMode="contain"
+          source={{
+            uri: "https://projectpokemon.org/images/normal-sprite/bulbasaur.gif",
+          }}
+        />
+      </SelectPokes>
     </Container>
   );
 };
