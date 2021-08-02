@@ -34,6 +34,7 @@ export default function App() {
               options={{
                 headerTitleAlign: "center",
                 headerTintColor: "#ffff",
+                headerShown:false,
                 headerStyle: {
                   backgroundColor: "#A52A2A",
                   elevation: 0,

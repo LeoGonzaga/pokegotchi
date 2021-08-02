@@ -11,9 +11,11 @@ import {
   Pokemon,
   PokeName,
   ButtonName,
+  Level,
 } from "./styles";
 import Status from "../../Components/Status/Status";
 import { PokeContext } from "../../context/usePoke";
+import BackgroundSVG from "../../Components/BackgroundSVG/BackgroundSVG";
 
 const Home: React.FC = () => {
   const { pokemon, primaryColor } = useContext(PokeContext);
@@ -39,11 +41,8 @@ const Home: React.FC = () => {
 
   return (
     <Container>
-      <BgPoke
-        source={{ uri: "null" }}
-        resizeMode="contain"
-        color={primaryColor || "#fff"}
-      >
+      <BgPoke color={primaryColor || "#fff"}>
+        <BackgroundSVG color={primaryColor} />
         <Pokemon
           resizeMode="contain"
           source={{
@@ -54,6 +53,9 @@ const Home: React.FC = () => {
         />
       </BgPoke>
       <PokeName color={primaryColor || "#fff"}>{pokemon}</PokeName>
+
+      <Level color={primaryColor || "#fff"}>Lvl 1</Level>
+
       <WrapperButtons>
         <PrimiryButton>
           <Entypo name="game-controller" size={24} color="#fff" />

@@ -15,8 +15,8 @@ type Props = {
 export const PokeContext = createContext<Type>({});
 
 const PokeContextProvider = ({ children }: Props): JSX.Element => {
-  const [pokemon, setPokemon] = useState<string>("");
-  const [primaryColor, setPrimaryColor] = useState<string>("");
+  const [pokemon, setPokemon] = useState<string>("charmander");
+  const [primaryColor, setPrimaryColor] = useState<string>(colors.fire);
 
   const handleSelectTheme = useCallback(
     (poke: string) => {

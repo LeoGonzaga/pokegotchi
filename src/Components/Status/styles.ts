@@ -18,7 +18,7 @@ export const Container = styled.View<Props>`
 `;
 
 export const StatusName = styled.Text`
-  color: ${colors.backgroud};
+  color: #fff;
   font-size: 22px;
   font-weight: bold;
   text-transform: uppercase;

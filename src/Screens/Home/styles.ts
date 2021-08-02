@@ -1,5 +1,6 @@
 import styled from "styled-components/native";
 import { colors } from "../../Themes/colors";
+
 type Colors = {
   color: string;
 };
@@ -10,13 +11,11 @@ export const Container = styled.View`
   align-items: center;
 `;
 
-export const BgPoke = styled.ImageBackground<Colors>`
+export const BgPoke = styled.View<Colors>`
   width: 280px;
   height: 280px;
   justify-content: center;
   align-items: center;
-  background-color: ${(props) => props.color || "#FFF"};
-  border-radius: 50%;
   margin: 0px;
   margin-top: 20px;
   background-size: contain;
@@ -32,7 +31,10 @@ export const WrapperButtons = styled.View`
 export const Pokemon = styled.Image`
   width: 100%;
   height: 60%;
+  max-height: 200px;
   margin: 0px;
+  position: fixed;
+  z-index: 20;
 `;
 
 export const PokeName = styled.Text<Colors>`
@@ -49,4 +51,13 @@ export const ButtonName = styled.Text`
   font-weight: bold;
   font-size: 15px;
   text-transform: uppercase;
+`;
+
+export const Level = styled.Text<Colors>`
+  color: ${(props) => props.color};
+  font-size: 26px;
+  margin: 0px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: end;
 `;
