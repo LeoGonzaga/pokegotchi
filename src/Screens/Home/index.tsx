@@ -19,17 +19,35 @@ import BackgroundSVG from "../../Components/BackgroundSVG/BackgroundSVG";
 
 const Home: React.FC = () => {
   const { pokemon, primaryColor } = useContext(PokeContext);
-  const [emotion, setEmotion] = useState<string>("");
-  let food = 10;
-  let shower = 10;
-  let games = 10;
-  let sleep = 10;
+  const [checkLife, setCheckLife] = useState<number>(0);
+  const [countCheckLife, setCountCheckLife] = useState<number>(0);
+
+  const [life, setLife] = useState<number>(50);
+
+  let min = Math.ceil(1);
+  let max = Math.floor(3);
+
+  const handleInitialValue = useCallback(() => {
+    let lifeTime = Math.floor(Math.random() * (max - min)) + min;
+    setCheckLife(lifeTime);
+  }, []);
 
   const handleStatesPokemon = useCallback(() => {
-    let min = Math.ceil(10);
-    let max = Math.floor(50);
     let lifeTime = Math.floor(Math.random() * (max - min)) + min;
-    console.log(lifeTime);
+    setCountCheckLife(lifeTime);
+  }, []);
+
+  const handleLifeCycle = useCallback(() => {
+    console.log(life, checkLife, countCheckLife);
+    if (checkLife > 0 && countCheckLife > 0) {
+      if (checkLife === countCheckLife) {
+        setLife(life - 1);
+      }
+    }
+  }, [countCheckLife, checkLife, life]);
+
+  useEffect(() => {
+    handleInitialValue();
   }, []);
 
   useEffect(() => {
@@ -38,6 +56,10 @@ const Home: React.FC = () => {
     }, 2 * 1000);
     return () => clearInterval(interval);
   }, []);
+
+  useEffect(() => {
+    handleLifeCycle();
+  }, [countCheckLife]);
 
   return (
     <Container>
