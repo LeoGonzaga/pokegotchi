@@ -12,7 +12,7 @@ type Props = {
   children: React.ReactNode;
 };
 
-export const PokeContext = createContext<Type>({});
+export const PokeContext = createContext<any>({});
 
 const PokeContextProvider = ({ children }: Props): JSX.Element => {
   const [pokemon, setPokemon] = useState<string>("charmander");

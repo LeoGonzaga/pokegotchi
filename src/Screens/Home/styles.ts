@@ -18,7 +18,6 @@ export const BgPoke = styled.View<Colors>`
   align-items: center;
   margin: 0px;
   margin-top: 20px;
-  background-size: contain;
 `;
 export const WrapperButtons = styled.View`
   width: 90%;
@@ -33,8 +32,8 @@ export const Pokemon = styled.Image`
   height: 60%;
   max-height: 200px;
   margin: 0px;
-  position: fixed;
   z-index: 20;
+  position: fixed;
 `;
 
 export const PokeName = styled.Text<Colors>`
@@ -59,5 +58,4 @@ export const Level = styled.Text<Colors>`
   margin: 0px;
   font-weight: bold;
   margin-bottom: 20px;
-  text-align: end;
 `;
